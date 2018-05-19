@@ -20,7 +20,6 @@ def init(url):
     ret=s.get(url)
     s.headers.update({"authorization":"oauth c3cef7c66a1843f8b3a9e6a1e3160e20"})
     return s
-
 def fetch_answer(s,qid,limit,offset):
     params={
         'sort_by':'default',
