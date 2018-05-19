@@ -13,7 +13,6 @@ def download(folder,url):
         return True
     else:
         return False
-
 def init(url):
     ua = {'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36'}
     s = requests.Session()
@@ -31,7 +30,6 @@ def fetch_answer(s,qid,limit,offset):
     }
     url ="https://www.zhihu.com/api/v4/questions/"+qid+"/answers"
     return s.get(url,params=params)
-
 def fetch_all_answers(url):
     session = init(url)
     q_id = url.split('/')[-1]
@@ -48,7 +46,6 @@ def fetch_all_answers(url):
         print("is_end: ",is_end)
         offset+=limit
     return answers
-
 def grep_image_urls(text):
     jpg = re.compile(r'https://[^\s]*?_r\.jpg')
     jpeg = re.compile(r'https://[^\s]*?_r\.jpeg')
@@ -61,7 +58,6 @@ def grep_image_urls(text):
     imgs+=png.findall(text)
     imgs = list(set(imgs))
     return imgs
-
 url = "https://www.zhihu.com/question/29814297"
 answers=fetch_all_answers(url)
 folder = '29814297'
